@@ -22,9 +22,9 @@ export default function AddTodo(props) {
     <div className="container">
         <h1>To-Do List</h1> 
         
-        <Form className="justify-content-md-center" style={{position: 'relative', left: '25%'}} onSubmit={submit}>
+        <Form className="justify-content-md-center" onSubmit={submit}>
         
-            <Card border="light" style={{ width: '50%' }}>
+            <Card border="light" style={{position: 'relative', width: '50%', left: '25%'}} >
             <Card.Header>
 
                 <Form.Group className="mb-3">

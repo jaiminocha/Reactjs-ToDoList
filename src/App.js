@@ -42,11 +42,8 @@ function App() {
 
   let addToDo = (title, desc) => {
     if (!title) return null;
-    let n = 0;
-    if (todoslist.length === 0) n = 0;
-    else {
-      n = todoslist[todoslist.length - 1].id + 1;
-    }
+    let n;
+    n = todoslist.length + 1;
     let mytodo = {
       id: n,
       title: title,
@@ -57,7 +54,8 @@ function App() {
     setTodos([mytodo, ...todoslist]);
 
   }
-
+  
+  const [y, setY] = useState(10000);
   const onDone = (todo)=>{
     let doneTodo = todo;
     
@@ -65,11 +63,11 @@ function App() {
       return t !== todo;
     });
 
-    let n = 0;
-    if (todoslist.length === 0) n = 0;
-    else {
-      n = todoslist[todoslist.length - 1].id + 1;
-    }
+    let n = 10000;
+    console.log(y);
+    n += (y);
+    setY(y + 1);
+
     let title = doneTodo.title;
     let desc = doneTodo.description;
     let mytodo = {
@@ -78,6 +76,8 @@ function App() {
       description: desc,
       done: true
     };
+
+    console.log(mytodo);
     setTodos([...newList, mytodo]);
 
     localStorage.setItem("todoslist", JSON.stringify(todoslist));
